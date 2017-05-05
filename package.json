@@ -13,6 +13,7 @@
     "ejs": "^2.5.6",
     "ejs-layouts": "0.0.1",
     "express": "^4.15.2",
+    "express-ejs-layouts": "^2.3.0",
     "pg": "^6.1.5",
     "sequelize": "^3.30.4"
   }
