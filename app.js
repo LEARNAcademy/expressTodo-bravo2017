@@ -1,5 +1,5 @@
 var express = require('express')
-
+var List = require('./models').List
 // requiring our new body-parser
 var bodyParser = require('body-parser')
 
@@ -10,8 +10,11 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', function (request, response) {
-  response.send('yo!')
-  // response.render('form-demo')
+  // load all the lists
+  List.all().then(function(lists){
+    // render those lists in the index view
+    response.render('index', {'lists': lists})
+  })
 });
 
 
