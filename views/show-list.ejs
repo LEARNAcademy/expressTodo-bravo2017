@@ -1,0 +1,15 @@
+<h1><%= list.event %>(<%= list.time %>)</h1>
+<ul>
+  <% for(i=0; i < todos.length; i++) { %>
+    <li>
+      <%= todos[i].description %>
+      <% if(todos[i].completed) {%>
+        <a href='<%= "/uncomplete-me/"+todos[i].id%>' class='btn btn-primary'>Uncomplete</a>
+      <% } else {%>
+        <a href='<%= "/complete-me/"+todos[i].id%>' class='btn btn-primary'>Complete</a>
+      <% } %>
+      <a href='<%= "/delete/"+todos[i].id%>' class='btn btn-danger'>Delete</a>
+
+    </li>
+  <% } %>
+</ul>

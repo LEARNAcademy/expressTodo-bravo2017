@@ -1,18 +1,19 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var List = sequelize.define('List', {
-    event: DataTypes.STRING,
-    time: DataTypes.STRING
+  var Todo = sequelize.define('Todo', {
+    listId: DataTypes.INTEGER,
+    description: DataTypes.STRING,
+    completed: DataTypes.BOOLEAN
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        List.hasMany(models.Todo,{
+        Todo.belongsTo(models.List,{
                   foreignKey: 'listId',
-                  as: 'todos'
+                  onDelete: 'CASCADE'
                 })
       }
     }
   });
-  return List;
+  return Todo;
 };
